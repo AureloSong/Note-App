@@ -1,6 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
+
 @import "tailwindcss";
-@theme {
-  --color-mint-500: oklch(0.72 0.11 178);
+
+@config "./tailwind.config.js";
+
+@layer base{
+    html {
+        font-family: "Open-Sans", "sans-seriff";
+    }
+
+    body {
+        background-color: #fdfeff ;
+        overflow-x: hidden;
+    }
+}
+@layer components {
+    .input-box {
+        @apply w-full text-sm bg-transparent border-[1.5px] px-5 py-3 rounded mb-4 outline-none;
+    }
+    .btn-primary{
+        @apply w-full text-sm bg-primary text-white p-2 rounded my-1 hover:bg-blue-600;
+    }
+}
+
+@layer utilities {
+    .text-primary {
+        @apply text-primary;
+    }
+    .text-secondary {
+        @apply text-secondary;
+    }
+    .text-tertiary {
+        @apply text-tertiary;
+    }
+    .bg-primary {
+        @apply bg-primary;
+    }
+    .bg-secondary {
+        @apply bg-secondary;
+    }
+    .bg-tertiary {
+        @apply bg-tertiary;
+    }
 }

@@ -12,9 +12,9 @@ const Login = () => {
           
           <input type="text" placeholder="Email" className="input-box"/>
           
-          <button type="sumbit" className="btn-primary"/>
-            Login
-          <button/>
+          <button type="sumbit" className="btn-primary">
+          Login
+          </button>
 
           <p className='text-sm text-center mt-4'>
             Not registed yet? {" "}
