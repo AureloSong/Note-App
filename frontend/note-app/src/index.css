@@ -25,22 +25,4 @@
 }
 
 @layer utilities {
-    .text-primary {
-        @apply text-primary;
-    }
-    .text-secondary {
-        @apply text-secondary;
-    }
-    .text-tertiary {
-        @apply text-tertiary;
-    }
-    .bg-primary {
-        @apply bg-primary;
-    }
-    .bg-secondary {
-        @apply bg-secondary;
-    }
-    .bg-tertiary {
-        @apply bg-tertiary;
-    }
 }
