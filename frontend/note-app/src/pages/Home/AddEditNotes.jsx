@@ -1,43 +1,81 @@
 import React from 'react'
 import { TagInput } from '../../components/Input/TagInput'
 import { useState } from 'react'
-const AddEditNotes = () => {
+import { MdClose } from 'react-icons/md'
+const AddEditNotes = ({
+  noteData,
+  type,
+  onClose }) => {
 
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [tags, setTags] = useState([]);
+  const [error, setError] = useState('');
 
+  const addNewNote = async () => {
+
+  }
+
+  const editNote = async () => {
+
+  }
+  const handleAddNote = () => {
+    if (!title) {
+      setError('Title is required');
+      return;
+    }
+    if (!content) {
+      setError('Content is required');
+      return;
+    }
+    setError("")
+
+    if (type === 'edit') {
+      editNote()
+    } else {
+      addNewNote()
+    }
+  }
 
   return (
-    <div>
+    <div className='relative'>
+
+      <button className='absolute flex items-center justify-center w-10 h-10 rounded-full right-3 top-3 hover:bg-slate-500'
+        onClick={onClose}>
+        <MdClose className='text-xl text-slate-400' />
+      </button>
+
       <div className='flex flex-col gap-2'>
         <label className='input-label'>TITLE</label>
         <input type="text"
-        className='text-2xl outline-none text-slate-950'
-        placeholder='Go to gym at 6'
-        value={title}
-        onChange={({target}) => setTitle(target.value)}
+          className='text-2xl outline-none text-slate-950'
+          placeholder='Go to gym at 6'
+          value={title}
+          onChange={({ target }) => setTitle(target.value)}
         />
       </div>
 
       <div className='flex flex-col gap-2 mt-4'>
         <label className='input-label'>CONTENT</label>
-        <textarea 
+        <textarea
           type="text"
           className='p-2 text-sm rounded outline-none text-slate-950 bg-slate-50 '
           placeholder='content goes here...'
           rows={10}
           value={content}
-          onChange={({target}) => setContent(target.value)}
+          onChange={({ target }) => setContent(target.value)}
         />
       </div>
       <div className='mt-3'>
         <label className='input-label'>TAGS</label>
         <TagInput tags={tags} setTags={setTags} />
       </div>
-      <button className='p-3 mt-5 font-medium btn-primary' onClick={() => {}}>
+
+      {error && <p className='pt-4 text-xs text-red-500'>{error}</p>}
+
+      <button className='p-3 mt-5 font-medium btn-primary' onClick={handleAddNote}>
         Add
-      </button> 
+      </button>
     </div>
   )
 }
