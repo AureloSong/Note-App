@@ -27,14 +27,14 @@ const NoteCard = ({
             </div>
             <div className='flex items-center justify-between mt-2'>
                 <div className='text-xs text-slate-500'></div>
-                <div className='flex items-center gap-2'></div>
+                <div className='flex items-center gap-2'>
                 <MdCreate className='icon-btn hover:text-green-600'
                 onClick={onEdit}
                 />
                 <MdDelete className='icon-btn hover:text-red-500'
                 onClick={onDelete}
                 />
-
+                </div>
             </div>    
         </div>
     )
