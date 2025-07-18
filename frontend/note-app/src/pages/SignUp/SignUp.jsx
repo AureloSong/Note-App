@@ -37,9 +37,9 @@ const SignUp = () => {
     <>
       <Navbar />
       <div className='flex items-center justify-center mt-28'>
-        <div className='w-96 border rounded bg-white px-7 py-10'>
+        <div className='py-10 bg-white border rounded w-96 px-7'>
           <form onSubmit={handleSignUp}>
-            <h4 className="text-2xl mb-7">SignUp</h4>
+            <h4 className="text-2xl mb-7">Sign Up</h4>
 
             <input
               type="text"
@@ -61,16 +61,16 @@ const SignUp = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
 
-            {error && <p className='text-red-500 text-xs pb-1'>{error}</p>}
+            {error && <p className='pb-1 text-xs text-red-500'>{error}</p>}
 
             <button type="sumbit" className="btn-primary">
               Create Account
             </button>
 
-            <p className='text-sm text-center mt-4'>
+            <p className='mt-4 text-sm text-center'>
               Already have an account? {" "}
-              <Link to="/Login" className="font-medium text-primary underline">
-                Login.
+              <Link to="/Login" className="font-medium underline text-primary">
+                Login
               </Link>
             </p>
 

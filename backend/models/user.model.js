@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
     {
-        fullNAme : { type: String},
+        fullName : { type: String},
         email: {type: String},
         password: {type: String},
         createOn: {type: Date, default: new Date().getTime()} ,
