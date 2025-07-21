@@ -28,6 +28,8 @@ app.get("/", (req, res) => {
     });
 });
 
+// Backend API for Notes Application
+
 // Create Account
 app.post("/create-account", async (req, res) => {
     const { fullName, email, password } = req.body;
@@ -128,6 +130,28 @@ app.post("/login", async (req, res) => {
         })
     }
 });
+
+app.get("/get-user", authenticateToken, async (req, res) => {
+    const { user } = req.user;
+    const isUser = await User.findOne({ _id: user._id });
+
+    if (!isUser) {
+        return res.status(404).json({
+            error: true,
+            message: "User not found."
+        });
+    }     
+
+    return res.json({
+        error: false,
+        user: { fullName: isUser.fullName,
+            email: isUser.email,
+            _id: isUser._id,
+            createdOn: isUser.createdOn },
+        message: "User fetched successfully"
+    }); 
+
+})
 
 app.post("/add-note", authenticateToken, async (req, res) => {
     const { title, content, tags } = req.body;
@@ -269,7 +293,7 @@ app.put("/update-note-pinned/:noteId", authenticateToken, async (req, res) => {
             });
         }
 
-        note.isPinned = !isPinned;
+        note.isPinned = !note.isPinned;
 
         await note.save();
 
@@ -285,6 +309,7 @@ app.put("/update-note-pinned/:noteId", authenticateToken, async (req, res) => {
         });
     }
 })
+
 
 app.listen(8000);
 
