@@ -119,7 +119,7 @@ app.post("/login", async (req, res) => {
 
         return res.json({
             error: false,
-            user: userInfo,
+            email,
             accessToken,
             message: "Login Successful",
         });
@@ -140,7 +140,7 @@ app.get("/get-user", authenticateToken, async (req, res) => {
     }
 
     return res.json({
-        user : isUser,
+        user: {fullName: isUser.fullName, email: isUser.email, _id: isUser._id },
         message: "User fetched successfully"
     })
 

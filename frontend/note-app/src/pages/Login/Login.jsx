@@ -10,6 +10,7 @@ const [email, setEmail] =useState("");
 const [password, setPassword] =useState("");
 const [error, setError] =useState(null);
 const navigate = useNavigate();
+
 const handleLogin = async (e) => {
   e.preventDefault();
 
@@ -38,7 +39,7 @@ const handleLogin = async (e) => {
       navigate('/dashboard');
     }
   } catch (error) {
-    if(error.response && error.response.data) {
+    if(error.response && error.response.data && error.response.data.message) {
       setError(error.response.data.message || "Login failed. Please try again.");
     }
     else {
