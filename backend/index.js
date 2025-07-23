@@ -136,20 +136,14 @@ app.get("/get-user", authenticateToken, async (req, res) => {
     const isUser = await User.findOne({ _id: user._id });
 
     if (!isUser) {
-        return res.status(404).json({
-            error: true,
-            message: "User not found."
-        });
-    }     
+        return res.sendStatus(401)
+    }
 
     return res.json({
-        error: false,
-        user: { fullName: isUser.fullName,
-            email: isUser.email,
-            _id: isUser._id,
-            createdOn: isUser.createdOn },
+        user : isUser,
         message: "User fetched successfully"
-    }); 
+    })
+
 
 })
 
