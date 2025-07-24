@@ -9,6 +9,9 @@ import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import axiosInstance from '../../utils/axiosInstance'
 import Toast from "../../components/ToastMessage/Toast"
+import EmptyCard from '../../components/EmptyCard/EmptyCard'
+import noteImg from "../../assets/images/noteImg.svg"
+
 const Home = () => {
 
   const [openAddEditModal, setOpenAddEditModal] = useState({
@@ -121,7 +124,9 @@ const Home = () => {
               onPinNote={() => { }}
             />))}
 
-        </div>) : (<EmptyCard />
+        </div>) : (
+          <EmptyCard imgSrc={noteImg} message="Start creating your own Notes..."
+        />
 
         )}
       </div>
