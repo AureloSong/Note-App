@@ -24,7 +24,7 @@ const NoteCard = ({
             </div>
             <p className='mt-2 text-xs text-slate-600'>{content?.slice(0, 60)}</p>
             <div className=''>
-                <div className='text-xs text-slate-500'>#{tags}</div>
+                <div className='text-xs text-slate-500'>{tags}</div>
             </div>
             <div className='flex items-center justify-between mt-2'>
                 <div className='text-xs text-slate-500'></div>

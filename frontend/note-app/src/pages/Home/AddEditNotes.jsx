@@ -6,8 +6,9 @@ import axiosInstance from '../../utils/axiosInstance'
 const AddEditNotes = ({
   noteData,
   type,
+  getAllNotes,
   onClose,
-  getAllNotes }) => {
+  showToastMessage }) => {
 
   const [title, setTitle] = useState(noteData?.title || "");
   const [content, setContent] = useState(noteData?.content || "");
@@ -23,6 +24,7 @@ const AddEditNotes = ({
       })
 
       if (response.data && response.data.note){
+        showToastMessage("Note Added Successfully")
         getAllNotes()
         onClose()
       }
@@ -32,7 +34,7 @@ const AddEditNotes = ({
       }
     }
   }
-
+  //edit Note
   const editNote = async () => {
     try{
       const noteId= noteData._id
@@ -43,6 +45,7 @@ const AddEditNotes = ({
       })
 
       if (response.data && response.data.note){
+        showToastMessage("Note Updated Successfully")
         getAllNotes()
         onClose()
       }
@@ -52,6 +55,7 @@ const AddEditNotes = ({
       }
     }
   }
+  //handle Add Note
   const handleAddNote = () => {
     if (!title) {
       setError('Title is required');
